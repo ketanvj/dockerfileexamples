@@ -1,0 +1,24 @@
+Currently, your company, Container Hub, hosts its website on an Ubuntu virtual machine using Nginx. Newer applications and services are containerized — both in production and for the engineer's dev environments. This has eliminated dev/prod disparity and decreased deploy times. You wish to bring those same efficiencies to the frontend team by Dockerizing the website.
+
+Take the website files provided (and provided Apache configuration), and create a Dockerfile that will deploy the website to an Alpine Linux container. Ensure the frontend devs can make any changes they need to the website without ever having to change the Dockerfile to create an image and test their changes.
+
+When finished, test the Dockerfile by creating an image and deploying a container to the host.
+
+1. Create the Dockerfile
+
+The Dockerfile can be created in a number of ways, so long as it meets expectations. The following nine steps are suggested:
+
+Define the desired container.
+Update the packages on the container.
+Install Nginx.
+Update the Nginx configuration.
+Create the location of the website files.
+Set the working directory to that of the website.
+Copy over website files, ensuring that Nginx is the owner.
+Expose port 80.
+Run Nginx at /tmp/nginx.pid; ensure Nginx is not set to run as a daemon.
+
+
+2. Test the image
+Use docker build to generate an image based on the provided Dockerfile
+Create a web01 container based on the image, ensuring port 80 on the container maps to 80 on the host and the container is launched in the background.
